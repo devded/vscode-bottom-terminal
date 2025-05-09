@@ -34,17 +34,15 @@ jobs:
 
       - name: Push VSIX to `vsix-artifacts` branch
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          # Create or reset orphan branch
-          git switch --orphan vsix-artifacts
-          git rm -rf .
-
-          # Move the .vsix file and commit it
-          mv *.vsix extension.vsix
-          git add extension.vsix
-          git commit -m "Build VSIX from ${GITHUB_SHA}"
-
-          # Force-push to the remote branch
-          git push -f origin vsix-artifacts
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+        
+            git switch --orphan vsix-artifacts
+        
+            # ✅ Move vsix before clearing files
+            mv *.vsix extension.vsix
+            git rm -rf .
+        
+            git add extension.vsix
+            git commit -m "Build VSIX from ${GITHUB_SHA}"
+            git push -f origin vsix-artifacts
