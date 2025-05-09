@@ -1,7 +1,3 @@
-Here’s a more polished and visually appealing version of your README with enhanced structure, formatting, and a professional tone:
-
----
-
 # 🚀 Bottom Terminal
 
 A simple yet powerful VS Code extension that adds a **Terminal** button to your bottom status bar — making your development experience faster and smoother.
