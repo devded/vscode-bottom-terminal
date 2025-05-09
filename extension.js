@@ -5,7 +5,7 @@ const vscode = require("vscode");
  */
 function activate(context) {
   const terminalItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-  terminalItem.text = `$(terminal) Terminal`;
+  terminalItem.text = `$(terminal)`;
   terminalItem.tooltip = "Click to toggle the terminal panel";
   terminalItem.command = "bottomTerminal.toggle";
   terminalItem.show();
