@@ -3,7 +3,7 @@ name: Package VS Code Extension and Push VSIX
 on:
   push:
     branches:
-      - main  # or your working branch
+      - main  # Replace with your desired source branch
 
 jobs:
   build-and-push-vsix:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Needed for pushing later
+          fetch-depth: 0  # Required to push to another branch
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -23,21 +23,28 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install vsce
+      - name: Install vsce globally
         run: npm install -g vsce
 
-      - name: Package the extension
+      - name: Package the VS Code extension
         run: vsce package
+
+      - name: Clean up git changes before switching branches
+        run: git reset --hard
 
       - name: Push VSIX to `vsix-artifacts` branch
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          
+
+          # Create or reset orphan branch
           git switch --orphan vsix-artifacts
           git rm -rf .
-          
+
+          # Move the .vsix file and commit it
           mv *.vsix extension.vsix
           git add extension.vsix
           git commit -m "Build VSIX from ${GITHUB_SHA}"
+
+          # Force-push to the remote branch
           git push -f origin vsix-artifacts
