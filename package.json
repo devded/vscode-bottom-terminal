@@ -14,7 +14,7 @@
   "version": "0.0.5",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fuadpashayev/vscode-ext-bottom-terminal"
+    "url": "https://github.com/devded/vscode-bottom-terminal"
   },
   "icon": "icon.png",
   "engines": {
