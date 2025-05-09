@@ -28,6 +28,9 @@ jobs:
 
       - name: Package the VS Code extension
         run: vsce package
+      
+      - name: Package the VS Code extension
+        run: vsce publish
 
       - name: Clean up git changes before switching branches
         run: git reset --hard
