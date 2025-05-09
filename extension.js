@@ -1,24 +1,14 @@
 const vscode = require("vscode");
 
-/**
- * @param {vscode.ExtensionContext} context
- */
 function activate(context) {
-  const terminalItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+  const terminalItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
   terminalItem.text = `$(terminal)`;
-  terminalItem.tooltip = "Click to toggle the terminal panel";
-  terminalItem.command = "bottomTerminal.toggle";
+  terminalItem.tooltip = "Toggle Terminal";
+  terminalItem.command = "extension.toggleTerminal";
   terminalItem.show();
 
-  const disposable = vscode.commands.registerCommand("bottomTerminal.toggle", async () => {
-    const activePanel = vscode.window.activeTerminal;
-
-    // Show or toggle terminal
-    if (!activePanel) {
-      vscode.commands.executeCommand("workbench.action.terminal.toggleTerminal");
-    } else {
-      vscode.commands.executeCommand("workbench.action.togglePanel");
-    }
+  const disposable = vscode.commands.registerCommand("extension.toggleTerminal", () => {
+    vscode.commands.executeCommand("workbench.action.togglePanel");
   });
 
   context.subscriptions.push(terminalItem, disposable);
@@ -30,4 +20,3 @@ module.exports = {
   activate,
   deactivate,
 };
-
