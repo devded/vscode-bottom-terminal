@@ -1,11 +1,8 @@
 const vscode = require("vscode");
 
 function activate(context) {
-  const config = vscode.workspace.getConfiguration("toggleTerminal");
-  const showLabel = config.get("showLabel", false); // default: icon only
-
   const terminalItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-  terminalItem.text = showLabel ? `$(terminal) Terminal` : `$(terminal)`;
+  terminalItem.text = $(terminal);
   terminalItem.tooltip = "Toggle Terminal";
   terminalItem.command = "extension.toggleTerminal";
   terminalItem.show();
@@ -23,3 +20,9 @@ module.exports = {
   activate,
   deactivate,
 };
+
+
+update this vscode extension code is it posible use can choose
+  terminalItem.text = $(terminal);
+and 
+  terminalItem.text = $(terminal) Terminal;
