@@ -12,7 +12,7 @@ A simple yet powerful VS Code extension that adds a **Terminal** button to your 
 
 ## 📸 Preview
 
-![Bottom Terminal Preview](https://res.cloudinary.com/practicaldev/image/fetch/s--7gH0SH2B--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9k3wukskbf84f7f2kqwm.png)
+![Bottom Terminal Preview](https://dl.dropboxusercontent.com/scl/fi/w7fyg6wnf36vf4fvnodvh/snapshot.png?rlkey=s6azxsoasvp5g0e77v4jxu8ti)
 
 ## 🛠️ Installation
 
