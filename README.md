@@ -22,12 +22,6 @@ A simple yet powerful VS Code extension that adds a **Terminal** button to your 
 4. Click **Install**
 5. Enjoy faster access to your terminal from the bottom bar!
 
-## 📦 Release Notes
-
-### 🆕 Version 0.0.5
-
-* ✅ Added terminal toggle button to the bottom status bar
-
 ## 🙏 Acknowledgements
 
 This extension is a **fork** of [fuadpashayev/vscode-ext-bottom-terminal](https://github.com/fuadpashayev/vscode-ext-bottom-terminal)
