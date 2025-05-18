@@ -1,17 +1,22 @@
 const vscode = require("vscode");
 
 function activate(context) {
-  const terminalItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-  terminalItem.text = $(terminal);
+  const terminalItem = vscode.window.createStatusBarItem(
+    vscode.StatusBarAlignment.Left
+  );
+  terminalItem.text = `$(terminal)`;
   terminalItem.tooltip = "Toggle Terminal";
-  terminalItem.command = "extension.toggleTerminal";
+  terminalItem.command = "bottom-terminal";
   terminalItem.show();
 
-  const disposable = vscode.commands.registerCommand("extension.toggleTerminal", () => {
-    vscode.commands.executeCommand("workbench.action.togglePanel");
-  });
+  const disposable = vscode.commands.registerCommand(
+    "bottom-terminal",
+    function () {
+      vscode.commands.executeCommand("workbench.action.togglePanel");
+    }
+  );
 
-  context.subscriptions.push(terminalItem, disposable);
+  context.subscriptions.push(disposable);
 }
 
 function deactivate() {}
@@ -20,9 +25,3 @@ module.exports = {
   activate,
   deactivate,
 };
-
-
-update this vscode extension code is it posible use can choose
-  terminalItem.text = $(terminal);
-and 
-  terminalItem.text = $(terminal) Terminal;
